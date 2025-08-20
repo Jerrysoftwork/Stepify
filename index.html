@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stepify 🚀 - Multi-step Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-icon">🚀</span>
+      <span class="logo-text">Stepify</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Step Indicators -->
+    <div class="step-indicator">
+      <span class="step active">1</span>
+      <span class="step">2</span>
+      <span class="step">3</span>
+      <span class="step">4</span>
+    </div>
+
+    <!-- Form -->
+    <form id="multiStepForm">
+      <!-- Step 1 -->
+      <div class="form-step active">
+        <h2>Personal Info</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step">
+        <h2>Select Plan</h2>
+        <label><input type="radio" name="plan" required> Basic</label>
+        <label><input type="radio" name="plan"> Pro</label>
+        <label><input type="radio" name="plan"> Premium</label>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step">
+        <h2>Add-ons</h2>
+        <label><input type="checkbox"> Extra Storage</label>
+        <label><input type="checkbox"> Priority Support</label>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="form-step">
+        <h2>Summary</h2>
+        <p>Review your info and confirm</p>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="buttons">
+        <button type="button" id="prevBtn">Previous</button>
+        <button type="button" id="nextBtn">Next</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
