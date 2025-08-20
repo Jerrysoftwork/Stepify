@@ -1,44 +1,54 @@
-let currentStep = 0; 
-showStep(currentStep);
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('multiStepForm');
+  const steps = Array.from(document.querySelectorAll('.form-step'));
+  const indicators = Array.from(document.querySelectorAll('.step'));
 
-function showStep(n) {
-  const steps = document.querySelectorAll(".form-step");
-  const indicators = document.querySelectorAll(".step");
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-  // Hide all steps
-  steps.forEach(step => step.classList.remove("active"));
-  indicators.forEach(ind => ind.classList.remove("active"));
+  let currentStep = 0;
 
-  // Show current step
-  steps[n].classList.add("active");
-  indicators[n].classList.add("active");
+  function showStep(n) {
+    // clamp to bounds
+    currentStep = Math.max(0, Math.min(n, steps.length - 1));
 
-  // Hide prev button on first step
-  document.getElementById("prevBtn").style.display = (n === 0) ? "none" : "inline-block";
+    // toggle step visibility
+    steps.forEach((el, i) => el.classList.toggle('active', i === currentStep));
+    // toggle indicator active state
+    indicators.forEach((el, i) => el.classList.toggle('active', i === currentStep));
 
-  // Change next button text to "Submit" on last step
-  if (n === steps.length - 1) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-}
-
-function nextPrev(n) {
-  const steps = document.querySelectorAll(".form-step");
-
-  // If on last step and user clicks submit
-  if (currentStep === steps.length - 1 && n === 1) {
-    document.querySelector("form").submit();
-    return;
+    // prev visibility
+    prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
+    // next text
+    nextBtn.textContent = currentStep === steps.length - 1 ? 'Submit' : 'Next';
   }
 
-  // Hide current step
-  steps[currentStep].classList.remove("active");
+  function go(delta) {
+    const target = currentStep + delta;
 
-  // Change step
-  currentStep += n;
+    // if we're on the last step and user clicks "Submit"
+    if (currentStep === steps.length - 1 && delta > 0) {
+      // trigger normal form submit (so HTML5 validation can run if you add it)
+      form.requestSubmit();
+      return;
+    }
 
-  // Show new step
-  showStep(currentStep);
-}
+    showStep(target);
+  }
+
+  // Wire up buttons
+  prevBtn.addEventListener('click', () => go(-1));
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // keep SPA behavior
+    go(1);
+  });
+
+  // Example submit handler (replace with your logic)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('✅ Submitted! (Hook this to your real submit logic)');
+  });
+
+  // initial render
+  showStep(0);
+});
