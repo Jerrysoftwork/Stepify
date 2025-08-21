@@ -3,59 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stepify 🚀 - Multi-step Form</title>
+  <title>Stepify 🚀 | Multi-step Form</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <span class="logo-icon">🚀</span>
-      <span class="logo-text">Stepify</span>
-    </div>
-  </header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🚀 Stepify</div>
+  </nav>
 
   <main>
-    <!-- Step Indicators -->
-    <div class="step-indicator">
-      <span class="step active">1</span>
-      <span class="step">2</span>
-      <span class="step">3</span>
-      <span class="step">4</span>
-    </div>
-
-    <!-- Form -->
     <form id="multiStepForm">
-      <!-- Step 1 -->
+      <!-- Step 1: Personal Info -->
       <div class="form-step active">
-        <h2>Personal Info</h2>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
+        <h2>Your Info</h2>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="e.g. Stephen King">
+          <small class="error"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" required placeholder="e.g. stephenking@lorem.com">
+          <small class="error"></small>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" required placeholder="e.g. +1 234 567 890">
+          <small class="error"></small>
+        </div>
       </div>
 
-      <!-- Step 2 -->
+      <!-- Step 2: Plan -->
       <div class="form-step">
-        <h2>Select Plan</h2>
-        <label><input type="radio" name="plan" required> Basic</label>
-        <label><input type="radio" name="plan"> Pro</label>
-        <label><input type="radio" name="plan"> Premium</label>
+        <h2>Select Your Plan</h2>
+        <div class="plans">
+          <label><input type="radio" name="plan" value="Arcade" required> Arcade</label>
+          <label><input type="radio" name="plan" value="Advanced"> Advanced</label>
+          <label><input type="radio" name="plan" value="Pro"> Pro</label>
+        </div>
+        <small class="error"></small>
       </div>
 
-      <!-- Step 3 -->
+      <!-- Step 3: Add-ons -->
       <div class="form-step">
         <h2>Add-ons</h2>
-        <label><input type="checkbox"> Extra Storage</label>
-        <label><input type="checkbox"> Priority Support</label>
+        <label><input type="checkbox" name="addon" value="Online service"> Online service</label><br>
+        <label><input type="checkbox" name="addon" value="Larger storage"> Larger storage</label><br>
+        <label><input type="checkbox" name="addon" value="Customizable profile"> Customizable profile</label>
       </div>
 
-      <!-- Step 4 -->
+      <!-- Step 4: Summary -->
       <div class="form-step">
         <h2>Summary</h2>
-        <p>Review your info and confirm</p>
+        <div id="summary"></div>
+        <p>Confirm your details before submitting.</p>
       </div>
 
-      <!-- Navigation Buttons -->
-      <div class="buttons">
-        <button type="button" id="prevBtn">Previous</button>
+      <!-- Navigation -->
+      <div class="navigation">
+        <button type="button" id="prevBtn">Back</button>
         <button type="button" id="nextBtn">Next</button>
       </div>
     </form>
