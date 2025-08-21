@@ -1,54 +1,84 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('multiStepForm');
-  const steps = Array.from(document.querySelectorAll('.form-step'));
-  const indicators = Array.from(document.querySelectorAll('.step'));
+const form = document.getElementById("multiStepForm");
+const steps = document.querySelectorAll(".form-step");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const summary = document.getElementById("summary");
 
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
+let currentStep = 0;
 
-  let currentStep = 0;
+function showStep(step) {
+  steps.forEach((s, i) => {
+    s.classList.toggle("active", i === step);
+  });
+  prevBtn.style.display = step === 0 ? "none" : "inline-block";
+  nextBtn.textContent = step === steps.length - 1 ? "Confirm" : "Next";
+}
 
-  function showStep(n) {
-    // clamp to bounds
-    currentStep = Math.max(0, Math.min(n, steps.length - 1));
+function validateStep(step) {
+  const inputs = steps[step].querySelectorAll("input[required]");
+  let valid = true;
 
-    // toggle step visibility
-    steps.forEach((el, i) => el.classList.toggle('active', i === currentStep));
-    // toggle indicator active state
-    indicators.forEach((el, i) => el.classList.toggle('active', i === currentStep));
-
-    // prev visibility
-    prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
-    // next text
-    nextBtn.textContent = currentStep === steps.length - 1 ? 'Submit' : 'Next';
-  }
-
-  function go(delta) {
-    const target = currentStep + delta;
-
-    // if we're on the last step and user clicks "Submit"
-    if (currentStep === steps.length - 1 && delta > 0) {
-      // trigger normal form submit (so HTML5 validation can run if you add it)
-      form.requestSubmit();
-      return;
+  inputs.forEach(input => {
+    const errorMsg = input.nextElementSibling;
+    if (!input.checkValidity()) {
+      errorMsg.textContent = "This field is required";
+      valid = false;
+    } else {
+      errorMsg.textContent = "";
     }
 
-    showStep(target);
+    // Extra email validation
+    if (input.type === "email" && input.value !== "") {
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailPattern.test(input.value)) {
+        errorMsg.textContent = "Enter a valid email";
+        valid = false;
+      }
+    }
+  });
+
+  return valid;
+}
+
+nextBtn.addEventListener("click", () => {
+  if (!validateStep(currentStep)) return;
+
+  if (currentStep < steps.length - 1) {
+    currentStep++;
+    if (currentStep === steps.length - 1) {
+      buildSummary();
+    }
+    showStep(currentStep);
+  } else {
+    alert("🎉 Form Submitted Successfully!");
+    form.reset();
+    currentStep = 0;
+    showStep(currentStep);
   }
-
-  // Wire up buttons
-  prevBtn.addEventListener('click', () => go(-1));
-  nextBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // keep SPA behavior
-    go(1);
-  });
-
-  // Example submit handler (replace with your logic)
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('✅ Submitted! (Hook this to your real submit logic)');
-  });
-
-  // initial render
-  showStep(0);
 });
+
+prevBtn.addEventListener("click", () => {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  }
+});
+
+function buildSummary() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const plan = form.querySelector("input[name='plan']:checked")?.value || "None";
+  const addons = [...form.querySelectorAll("input[name='addon']:checked")].map(a => a.value);
+
+  summary.innerHTML = `
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Plan:</strong> ${plan}</p>
+    <p><strong>Add-ons:</strong> ${addons.join(", ") || "None"}</p>
+  `;
+}
+
+// Init
+showStep(currentStep);
