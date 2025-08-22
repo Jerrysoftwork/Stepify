@@ -1,3 +1,77 @@
+// Landing Page JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        }
+    });
+    
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe service cards and course cards
+    document.querySelectorAll('.service-card, .course-card, .testimonial-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+// Multi-Step Form JavaScript (for enrollment.html)
 // Form data storage
 let formData = {
     personalInfo: {},
@@ -23,75 +97,83 @@ const scheduleData = {
     'weekend': 'Weekend (Saturdays 10:00 AM - 4:00 PM)'
 };
 
-// Initialize form
-document.addEventListener('DOMContentLoaded', function() {
-    // Course selection handlers
-    document.querySelectorAll('.course-card').forEach(card => {
-        card.addEventListener('click', function() {
-            document.querySelectorAll('.course-card').forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            formData.courseSelection.course = this.dataset.course;
-            hideError('courseError');
+// Initialize form (only runs on enrollment page)
+if (document.body.classList.contains('form-page')) {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Course selection handlers
+        document.querySelectorAll('.form-course-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.form-course-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                formData.courseSelection.course = this.dataset.course;
+                hideError('courseError');
+            });
         });
-    });
 
-    // Schedule selection handlers
-    document.querySelectorAll('.schedule-option').forEach(option => {
-        option.addEventListener('click', function() {
-            document.querySelectorAll('.schedule-option').forEach(o => o.classList.remove('selected'));
-            this.classList.add('selected');
-            formData.schedule.timeSlot = this.dataset.schedule;
-            hideError('scheduleError');
+        // Schedule selection handlers
+        document.querySelectorAll('.schedule-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.schedule-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                formData.schedule.timeSlot = this.dataset.schedule;
+                hideError('scheduleError');
+            });
         });
-    });
 
-    // Set minimum date to today
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('startDate').setAttribute('min', today);
-    
-    // Add input event listeners to clear errors on typing
-    document.querySelectorAll('.form-input, .form-select').forEach(input => {
-        input.addEventListener('input', function() {
-            this.classList.remove('error');
-            const errorElement = this.parentNode.querySelector('.error-message');
-            if (errorElement) {
-                errorElement.style.display = 'none';
-            }
-        });
-    });
-    
-    // Add hover effects to buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        const startDateInput = document.getElementById('startDate');
+        if (startDateInput) {
+            startDateInput.setAttribute('min', today);
+        }
+        
+        // Add input event listeners to clear errors on typing
+        document.querySelectorAll('.form-input, .form-select').forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorElement = this.parentNode.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
         });
         
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+        // Add hover effects to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Auto-format phone number
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 10) {
+                    value = value.substring(0, 11);
+                }
+                e.target.value = value;
+            });
+        }
+        
+        // Prevent form submission on Enter key
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                if (formData.currentStep < 4) {
+                    nextStep();
+                } else if (formData.currentStep === 4) {
+                    submitForm();
+                }
+            }
         });
     });
-    
-    // Auto-format phone number
-    document.getElementById('phone').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length >= 10) {
-            value = value.substring(0, 11);
-        }
-        e.target.value = value;
-    });
-    
-    // Prevent form submission on Enter key
-    document.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-            e.preventDefault();
-            if (formData.currentStep < 4) {
-                nextStep();
-            } else if (formData.currentStep === 4) {
-                submitForm();
-            }
-        }
-    });
-});
+}
 
 function nextStep() {
     if (validateCurrentStep()) {
@@ -127,7 +209,10 @@ function showStep(stepNumber) {
     });
     
     // Show current step
-    document.getElementById(`step${stepNumber}`).classList.add('active');
+    const currentStepElement = document.getElementById(`step${stepNumber}`);
+    if (currentStepElement) {
+        currentStepElement.classList.add('active');
+    }
     
     // Update step indicators
     document.querySelectorAll('.step-item').forEach(item => {
@@ -144,7 +229,10 @@ function showStep(stepNumber) {
 
 function updateProgressBar() {
     const progress = (formData.currentStep / 4) * 100;
-    document.getElementById('progressFill').style.width = progress + '%';
+    const progressFill = document.getElementById('progressFill');
+    if (progressFill) {
+        progressFill.style.width = progress + '%';
+    }
 }
 
 function validateCurrentStep() {
@@ -257,13 +345,15 @@ function submitForm() {
 
 function showError(elementId, message) {
     const errorElement = document.getElementById(elementId);
-    const inputElement = errorElement.previousElementSibling;
-    
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-    
-    if (inputElement && (inputElement.classList.contains('form-input') || inputElement.classList.contains('form-select'))) {
-        inputElement.classList.add('error');
+    if (errorElement) {
+        const inputElement = errorElement.previousElementSibling;
+        
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        
+        if (inputElement && (inputElement.classList.contains('form-input') || inputElement.classList.contains('form-select'))) {
+            inputElement.classList.add('error');
+        }
     }
 }
 
@@ -281,7 +371,7 @@ function isValidEmail(email) {
 
 // Optional: Function to send form data to server
 function sendFormDataToServer(data) {
-    // Example implementation
+    // Example implementation for future use
     /*
     fetch('/api/enroll', {
         method: 'POST',
