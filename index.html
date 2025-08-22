@@ -1,110 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stepify 🚀</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stepify 🚀 | Landing</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
   <header>
-    <nav class="navbar">
-      <div class="logo">🚀 Stepify</div>
-      <ul class="nav-links">
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#form">Multi-Step Form</a></li>
-        <li><a href="#faqs">FAQs</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#updates">Stay Updated</a></li>
-      </ul>
-      <button class="github-login">Login with GitHub</button>
+    <div class="logo">
+      <span class="logo-icon">🚀</span>
+      <span class="logo-text">Stepify</span>
+    </div>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
+      <a href="#subscribe">Stay Updated</a>
+      <a href="form.html" class="btn">Start Form</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Build Better Forms with Stepify 🚀</h1>
-    <p>Create, preview, and share beautiful multi-step forms with ease.</p>
-    <a href="#form" class="cta-btn">Get Started</a>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Stepify 🚀</h1>
+      <p>A creative way to experience a modern Multi-step Form Challenge.</p>
+      <a href="form.html" class="btn">Get Started</a>
+    </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="card">Form Preview 1</div>
-      <div class="card">Form Preview 2</div>
-      <div class="card">Form Preview 3</div>
-    </div>
-  </section>
-
-  <!-- Multi-step Form -->
-  <section id="form">
-    <h2>Multi-Step Form</h2>
-    <form id="multiStepForm">
-      <!-- Step 1 -->
-      <div class="form-step active">
-        <h3>Step 1: Personal Info</h3>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <button type="button" class="next-btn">Next</button>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="grid-gallery">
+        <img src="https://via.placeholder.com/250" alt="Demo 1">
+        <img src="https://via.placeholder.com/250" alt="Demo 2">
+        <img src="https://via.placeholder.com/250" alt="Demo 3">
       </div>
-      <!-- Step 2 -->
-      <div class="form-step">
-        <h3>Step 2: Preferences</h3>
-        <input type="text" placeholder="Favorite Tool" required>
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="button" class="next-btn">Next</button>
+    </section>
+
+    <section id="faqs">
+      <h2>Challenge FAQs</h2>
+      <div class="faq-item">
+        <h3>What is Stepify?</h3>
+        <p>Stepify helps you practice frontend challenges in a multi-step process.</p>
       </div>
-      <!-- Step 3 -->
-      <div class="form-step">
-        <h3>Step 3: Review & Submit</h3>
-        <p>Confirm your details and submit.</p>
-        <button type="button" class="prev-btn">Previous</button>
-        <button type="submit">Submit</button>
+      <div class="faq-item">
+        <h3>Is it free?</h3>
+        <p>Yes, 100% free to use and practice 🚀</p>
       </div>
-    </form>
-  </section>
+    </section>
 
-  <!-- FAQs -->
-  <section id="faqs">
-    <h2>Challenge FAQs</h2>
-    <div class="faq-item">
-      <h4>What is Stepify?</h4>
-      <p>A tool to practice building beautiful multi-step forms.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Can I use this for projects?</h4>
-      <p>Yes! Stepify helps you learn and create reusable form designs.</p>
-    </div>
-  </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Stay connected with us:</p>
+      <ul class="socials">
+        <li><a href="#">Discord</a></li>
+        <li><a href="#">X (Twitter)</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Join us on:</p>
-    <ul>
-      <li><a href="#">Discord</a></li>
-      <li><a href="#">X (Twitter)</a></li>
-      <li><a href="mailto:support@stepify.com">Email</a></li>
-    </ul>
-  </section>
+    <section id="subscribe">
+      <h2>Stay Up to Date</h2>
+      <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
 
-  <!-- Stay Updated -->
-  <section id="updates">
-    <h2>Stay Up To Date</h2>
-    <form>
-      <input type="email" placeholder="Enter your email">
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Stepify 🚀 | All rights reserved.</p>
+    <p>© 2025 Stepify 🚀. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
