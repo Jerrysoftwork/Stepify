@@ -3,295 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Enrollment - Jerry Concept Hub</title>
+    <title>Jerry Concept Hub - Your Gateway to Tech Excellence</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="form-styles.css">
 </head>
-<body class="form-page">
-    <!-- Back to Home Link -->
-    <a href="index.html" class="back-to-home">← Back to Home</a>
-
-    <div class="form-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-content">
-                <div class="form-logo">
-                    <h1>Jerry Concept Hub</h1>
-                    <p>Course Enrollment Form</p>
-                </div>
-                
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                
-                <ul class="step-indicator">
-                    <li class="step-item active" data-step="1">
-                        <div class="step-number">1</div>
-                        <div class="step-info">
-                            <h3>Personal Info</h3>
-                            <p>Your basic details</p>
-                        </div>
-                    </li>
-                    <li class="step-item" data-step="2">
-                        <div class="step-number">2</div>
-                        <div class="step-info">
-                            <h3>Select Course</h3>
-                            <p>Choose your program</p>
-                        </div>
-                    </li>
-                    <li class="step-item" data-step="3">
-                        <div class="step-number">3</div>
-                        <div class="step-info">
-                            <h3>Schedule</h3>
-                            <p>Pick your timing</p>
-                        </div>
-                    </li>
-                    <li class="step-item" data-step="4">
-                        <div class="step-number">4</div>
-                        <div class="step-info">
-                            <h3>Review</h3>
-                            <p>Confirm enrollment</p>
-                        </div>
-                    </li>
-                </ul>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Jerry Concept Hub</h2>
+                <span class="logo-tagline">Tech Excellence</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="enrollment.html" class="btn-primary">Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
+    </nav>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Step 1: Personal Information -->
-            <div class="form-step active" id="step1">
-                <div class="step-header">
-                    <h2 class="step-title">Personal Information</h2>
-                    <p class="step-subtitle">Let's get to know you better</p>
-                </div>
-                
-                <div class="form-content">
-                    <div class="form-group">
-                        <label class="form-label" for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name">
-                        <div class="error-message" id="fullNameError">Please enter your full name</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transform Your Future with 
+                    <span class="highlight">Tech Skills</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Join thousands of students who have advanced their careers through our comprehensive tech training programs. From basic computer skills to advanced web development.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Graduates</span>
                     </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address *</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your email address">
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
-                        <div class="error-message" id="phoneError">Please enter your phone number</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="experience">Experience Level</label>
-                        <select id="experience" class="form-select">
-                            <option value="">Select your experience level</option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Success Rate</span>
                     </div>
                 </div>
-                
-                <div class="form-buttons">
-                    <div></div>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                <div class="hero-buttons">
+                    <a href="enrollment.html" class="btn-hero-primary">Start Your Journey</a>
+                    <a href="#courses" class="btn-hero-secondary">View Courses</a>
                 </div>
             </div>
-
-            <!-- Step 2: Course Selection -->
-            <div class="form-step" id="step2">
-                <div class="step-header">
-                    <h2 class="step-title">Select Your Course</h2>
-                    <p class="step-subtitle">Choose the program that fits your goals</p>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">💻</div>
+                    <h4>Computer Skills</h4>
                 </div>
-                
-                <div class="form-content">
-                    <div class="course-grid">
-                        <div class="form-course-card" data-course="basic-computer">
-                            <span class="course-icon">💻</span>
-                            <div class="course-title">Basic Computer Skills</div>
-                            <div class="course-description">Learn computer fundamentals, file management, and basic software operations.</div>
-                            <div class="course-price">₦15,000</div>
-                        </div>
-                        
-                        <div class="form-course-card" data-course="microsoft-office">
-                            <span class="course-icon">📊</span>
-                            <div class="course-title">Microsoft Office Suite</div>
-                            <div class="course-description">Master Word, Excel, PowerPoint, and Outlook for productivity.</div>
-                            <div class="course-price">₦25,000</div>
-                        </div>
-                        
-                        <div class="form-course-card" data-course="graphic-design">
-                            <span class="course-icon">🎨</span>
-                            <div class="course-title">Graphic Design</div>
-                            <div class="course-description">Create stunning visuals using industry-standard design software.</div>
-                            <div class="course-price">₦35,000</div>
-                        </div>
-                        
-                        <div class="form-course-card" data-course="web-development">
-                            <span class="course-icon">🌐</span>
-                            <div class="course-title">Web Development</div>
-                            <div class="course-description">Build modern websites using HTML, CSS, JavaScript, and frameworks.</div>
-                            <div class="course-price">₦45,000</div>
-                        </div>
-                        
-                        <div class="form-course-card" data-course="digital-marketing">
-                            <span class="course-icon">📱</span>
-                            <div class="course-title">Digital Marketing</div>
-                            <div class="course-description">Learn social media marketing, SEO, and online advertising strategies.</div>
-                            <div class="course-price">₦30,000</div>
-                        </div>
-                        
-                        <div class="form-course-card" data-course="data-analysis">
-                            <span class="course-icon">📈</span>
-                            <div class="course-title">Data Analysis</div>
-                            <div class="course-description">Analyze data using Excel, Python, and visualization tools.</div>
-                            <div class="course-price">₦40,000</div>
-                        </div>
-                    </div>
-                    <div class="error-message" id="courseError">Please select a course</div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">🎨</div>
+                    <h4>Graphic Design</h4>
                 </div>
-                
-                <div class="form-buttons">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🌐</div>
+                    <h4>Web Development</h4>
+                </div>
+                <div class="floating-card card-4">
+                    <div class="card-icon">📊</div>
+                    <h4>Data Analysis</h4>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Step 3: Schedule Selection -->
-            <div class="form-step" id="step3">
-                <div class="step-header">
-                    <h2 class="step-title">Choose Your Schedule</h2>
-                    <p class="step-subtitle">Select your preferred class timing</p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive tech solutions for individuals and businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Internet Café</h3>
+                    <p>High-speed internet access with comfortable workstations for browsing, research, and online activities.</p>
+                    <ul class="service-features">
+                        <li>High-speed internet</li>
+                        <li>Modern workstations</li>
+                        <li>Comfortable environment</li>
+                    </ul>
                 </div>
-                
-                <div class="form-content">
-                    <div class="form-group">
-                        <label class="form-label">Preferred Time Slot</label>
-                        <div class="schedule-grid">
-                            <div class="schedule-option" data-schedule="morning">
-                                <strong>Morning</strong><br>
-                                <small>9:00 AM - 12:00 PM</small>
-                            </div>
-                            <div class="schedule-option" data-schedule="afternoon">
-                                <strong>Afternoon</strong><br>
-                                <small>1:00 PM - 4:00 PM</small>
-                            </div>
-                            <div class="schedule-option" data-schedule="evening">
-                                <strong>Evening</strong><br>
-                                <small>5:00 PM - 8:00 PM</small>
-                            </div>
-                            <div class="schedule-option" data-schedule="weekend">
-                                <strong>Weekend</strong><br>
-                                <small>Saturdays 10:00 AM - 4:00 PM</small>
-                            </div>
-                        </div>
-                        <div class="error-message" id="scheduleError">Please select a schedule</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="startDate">Preferred Start Date</label>
-                        <input type="date" id="startDate" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="additionalNotes">Additional Notes (Optional)</label>
-                        <textarea id="additionalNotes" class="form-input" rows="4" placeholder="Any special requirements or questions?"></textarea>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">🖨️</div>
+                    <h3>Printing Services</h3>
+                    <p>Professional printing, scanning, and photocopying services for all your document needs.</p>
+                    <ul class="service-features">
+                        <li>Color & B/W printing</li>
+                        <li>Document scanning</li>
+                        <li>Large format printing</li>
+                    </ul>
                 </div>
-                
-                <div class="form-buttons">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Review Order</button>
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>Document Processing</h3>
+                    <p>Professional document creation, editing, and formatting for resumes, reports, and business materials.</p>
+                    <ul class="service-features">
+                        <li>Resume writing</li>
+                        <li>Business documents</li>
+                        <li>Academic papers</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Step 4: Review & Confirmation -->
-            <div class="form-step" id="step4">
-                <div class="step-header">
-                    <h2 class="step-title">Review Your Enrollment</h2>
-                    <p class="step-subtitle">Please confirm your course details</p>
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Courses</h2>
+                <p class="section-subtitle">Choose from our comprehensive range of tech training programs</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <div class="course-price">₦15,000</div>
+                    </div>
+                    <h3 class="course-title">Basic Computer Skills</h3>
+                    <p class="course-description">Perfect for beginners. Learn computer fundamentals, file management, and essential software operations.</p>
+                    <ul class="course-topics">
+                        <li>Computer basics</li>
+                        <li>File management</li>
+                        <li>Internet navigation</li>
+                        <li>Basic troubleshooting</li>
+                    </ul>
+                    <div class="course-duration">Duration: 4 weeks</div>
                 </div>
                 
-                <div class="form-content">
-                    <div class="summary-section">
-                        <div class="summary-title">Personal Information</div>
-                        <div class="summary-item">
-                            <span class="summary-label">Full Name:</span>
-                            <span class="summary-value" id="summaryName"></span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Email:</span>
-                            <span class="summary-value" id="summaryEmail"></span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Phone:</span>
-                            <span class="summary-value" id="summaryPhone"></span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Experience:</span>
-                            <span class="summary-value" id="summaryExperience"></span>
-                        </div>
+                <div class="course-card featured">
+                    <div class="course-badge">Most Popular</div>
+                    <div class="course-header">
+                        <div class="course-icon">📊</div>
+                        <div class="course-price">₦25,000</div>
                     </div>
-                    
-                    <div class="summary-section">
-                        <div class="summary-title">Course Details</div>
-                        <div class="summary-item">
-                            <span class="summary-label">Course:</span>
-                            <span class="summary-value" id="summaryCourse"></span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Schedule:</span>
-                            <span class="summary-value" id="summarySchedule"></span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Start Date:</span>
-                            <span class="summary-value" id="summaryStartDate"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="total-amount" id="totalAmount">₦0</div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="termsAgree" style="margin-right: 10px;">
-                            I agree to the <a href="#" style="color: #2a5298;">terms and conditions</a>
-                        </label>
-                        <div class="error-message" id="termsError">Please agree to the terms and conditions</div>
-                    </div>
+                    <h3 class="course-title">Microsoft Office Suite</h3>
+                    <p class="course-description">Master essential productivity tools including Word, Excel, PowerPoint, and Outlook.</p>
+                    <ul class="course-topics">
+                        <li>Microsoft Word</li>
+                        <li>Excel spreadsheets</li>
+                        <li>PowerPoint presentations</li>
+                        <li>Outlook email management</li>
+                    </ul>
+                    <div class="course-duration">Duration: 6 weeks</div>
                 </div>
                 
-                <div class="form-buttons">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
-                    <button type="button" class="btn btn-submit" onclick="submitForm()">Enroll Now</button>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">🌐</div>
+                        <div class="course-price">₦45,000</div>
+                    </div>
+                    <h3 class="course-title">Web Development</h3>
+                    <p class="course-description">Build modern, responsive websites using HTML, CSS, JavaScript, and popular frameworks.</p>
+                    <ul class="course-topics">
+                        <li>HTML & CSS</li>
+                        <li>JavaScript programming</li>
+                        <li>Responsive design</li>
+                        <li>Modern frameworks</li>
+                    </ul>
+                    <div class="course-duration">Duration: 12 weeks</div>
                 </div>
             </div>
+            
+            <div class="courses-cta">
+                <a href="enrollment.html" class="btn-courses">View All Courses & Enroll</a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Step 5: Success -->
-            <div class="form-step" id="step5">
-                <div class="success-animation">
-                    <div class="success-icon">🎉</div>
-                    <h2 class="step-title" style="color: #4CAF50;">Enrollment Successful!</h2>
-                    <p class="step-subtitle">Thank you for enrolling with Jerry Concept Hub</p>
-                    <div style="margin-top: 30px; padding: 20px; background: #f0f4ff; border-radius: 10px;">
-                        <p><strong>What's Next?</strong></p>
-                        <p>• You will receive a confirmation email shortly</p>
-                        <p>• Our team will contact you within 24 hours</p>
-                        <p>• Payment instructions will be provided</p>
-                        <p>• You'll receive your course materials before the start date</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Jerry Concept Hub</h2>
+                    <p class="about-description">
+                        Since 2015, Jerry Concept Hub has been at the forefront of providing cutting-edge computer services and technology education to our community. We believe in empowering individuals with the digital skills needed to thrive in today's tech-driven world.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">🏆</div>
+                            <div class="feature-content">
+                                <h4>Expert Instructors</h4>
+                                <p>Learn from industry professionals with years of real-world experience.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <div class="feature-content">
+                                <h4>Hands-on Learning</h4>
+                                <p>Practical projects and real-world applications in every course.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📈</div>
+                            <div class="feature-content">
+                                <h4>Career Growth</h4>
+                                <p>Skills that directly translate to better job opportunities and career advancement.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-top: 30px;">
-                        <a href="index.html" class="btn btn-next">Return to Home</a>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <span style="font-size: 120px; color: #2a5298;">🎓</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Students Say</h2>
+                <p class="section-subtitle">Real stories from real students</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The graphic design course completely transformed my career path. The instructors were knowledgeable and supportive."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Graphic Design Graduate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Jerry Concept Hub has been our go-to IT support for over three years. Professional service and quick response time."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MO</div>
+                        <div class="author-info">
+                            <h4>Michael Okonkwo</h4>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I started with zero coding knowledge, and now I'm building my own applications! The step-by-step approach made learning enjoyable."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AB</div>
+                        <div class="author-info">
+                            <h4>Amina Bello</h4>
+                            <span>Web Development Graduate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Tech Journey?</h2>
+                <p>Join hundreds of students who have transformed their careers with Jerry Concept Hub</p>
+                <a href="enrollment.html" class="btn-cta-large">Enroll in a Course Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Jerry Concept Hub</h3>
+                    <p>Your gateway to tech excellence since 2015. Empowering the next generation of tech professionals.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">📘</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="enrollment.html">Enrollment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Popular Courses</h4>
+                    <ul class="footer-links">
+                        <li><a href="enrollment.html">Basic Computer Skills</a></li>
+                        <li><a href="enrollment.html">Microsoft Office</a></li>
+                        <li><a href="enrollment.html">Web Development</a></li>
+                        <li><a href="enrollment.html">Graphic Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p>📍 Lagos, Nigeria</p>
+                        <p>📞 +234 XXX XXX XXXX</p>
+                        <p>📧 info@jerryconcepthub.com</p>
+                        <p>🕒 Mon-Sat: 9AM-6PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jerry Concept Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
