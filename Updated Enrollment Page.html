@@ -121,3 +121,177 @@
                         <div class="form-course-card" data-course="microsoft-office">
                             <span class="course-icon">📊</span>
                             <div class="course-title">Microsoft Office Suite</div>
+                            <div class="course-description">Master Word, Excel, PowerPoint, and Outlook for productivity.</div>
+                            <div class="course-price">₦25,000</div>
+                        </div>
+                        
+                        <div class="form-course-card" data-course="graphic-design">
+                            <span class="course-icon">🎨</span>
+                            <div class="course-title">Graphic Design</div>
+                            <div class="course-description">Create stunning visuals using industry-standard design software.</div>
+                            <div class="course-price">₦35,000</div>
+                        </div>
+                        
+                        <div class="form-course-card" data-course="web-development">
+                            <span class="course-icon">🌐</span>
+                            <div class="course-title">Web Development</div>
+                            <div class="course-description">Build modern websites using HTML, CSS, JavaScript, and frameworks.</div>
+                            <div class="course-price">₦45,000</div>
+                        </div>
+                        
+                        <div class="form-course-card" data-course="digital-marketing">
+                            <span class="course-icon">📱</span>
+                            <div class="course-title">Digital Marketing</div>
+                            <div class="course-description">Learn social media marketing, SEO, and online advertising strategies.</div>
+                            <div class="course-price">₦30,000</div>
+                        </div>
+                        
+                        <div class="form-course-card" data-course="data-analysis">
+                            <span class="course-icon">📈</span>
+                            <div class="course-title">Data Analysis</div>
+                            <div class="course-description">Analyze data using Excel, Python, and visualization tools.</div>
+                            <div class="course-price">₦40,000</div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="courseError">Please select a course</div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Schedule Selection -->
+            <div class="form-step" id="step3">
+                <div class="step-header">
+                    <h2 class="step-title">Choose Your Schedule</h2>
+                    <p class="step-subtitle">Select your preferred class timing</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="form-group">
+                        <label class="form-label">Preferred Time Slot</label>
+                        <div class="schedule-grid">
+                            <div class="schedule-option" data-schedule="morning">
+                                <strong>Morning</strong><br>
+                                <small>9:00 AM - 12:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="afternoon">
+                                <strong>Afternoon</strong><br>
+                                <small>1:00 PM - 4:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="evening">
+                                <strong>Evening</strong><br>
+                                <small>5:00 PM - 8:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="weekend">
+                                <strong>Weekend</strong><br>
+                                <small>Saturdays 10:00 AM - 4:00 PM</small>
+                            </div>
+                        </div>
+                        <div class="error-message" id="scheduleError">Please select a schedule</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="startDate">Preferred Start Date</label>
+                        <input type="date" id="startDate" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="additionalNotes">Additional Notes (Optional)</label>
+                        <textarea id="additionalNotes" class="form-input" rows="4" placeholder="Any special requirements or questions?"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Review Order</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Review & Confirmation -->
+            <div class="form-step" id="step4">
+                <div class="step-header">
+                    <h2 class="step-title">Review Your Enrollment</h2>
+                    <p class="step-subtitle">Please confirm your course details</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="summary-section">
+                        <div class="summary-title">Personal Information</div>
+                        <div class="summary-item">
+                            <span class="summary-label">Full Name:</span>
+                            <span class="summary-value" id="summaryName"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Email:</span>
+                            <span class="summary-value" id="summaryEmail"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Phone:</span>
+                            <span class="summary-value" id="summaryPhone"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Experience:</span>
+                            <span class="summary-value" id="summaryExperience"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-section">
+                        <div class="summary-title">Course Details</div>
+                        <div class="summary-item">
+                            <span class="summary-label">Course:</span>
+                            <span class="summary-value" id="summaryCourse"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Schedule:</span>
+                            <span class="summary-value" id="summarySchedule"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Start Date:</span>
+                            <span class="summary-value" id="summaryStartDate"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="total-amount" id="totalAmount">₦0</div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="termsAgree" style="margin-right: 10px;">
+                            I agree to the <a href="#" style="color: #2a5298;">terms and conditions</a>
+                        </label>
+                        <div class="error-message" id="termsError">Please agree to the terms and conditions</div>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-submit" onclick="submitForm()">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Success -->
+            <div class="form-step" id="step5">
+                <div class="success-animation">
+                    <div class="success-icon">🎉</div>
+                    <h2 class="step-title" style="color: #4CAF50;">Enrollment Successful!</h2>
+                    <p class="step-subtitle">Thank you for enrolling with Jerry Concept Hub</p>
+                    <div style="margin-top: 30px; padding: 20px; background: #f0f4ff; border-radius: 10px;">
+                        <p><strong>What's Next?</strong></p>
+                        <p>• You will receive a confirmation email shortly</p>
+                        <p>• Our team will contact you within 24 hours</p>
+                        <p>• Payment instructions will be provided</p>
+                        <p>• You'll receive your course materials before the start date</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <a href="index.html" class="btn btn-next">Return to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
