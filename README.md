@@ -52,8 +52,11 @@ jerry-concept-hub/
 1. **Download/Clone the project**
    ```bash
    git clone https://github.com/your-username/jerry-concept-hub.git
-cd jerry-concept-hub
+   cd jerry-concept-hub
    ```
+   
+   **Or visit the live demo:**
+   🌐 **Live Website:** https://stepify-azure.vercel.app/
 
 2. **Create the CSS files**
    - Create `style.css` for main styles
@@ -201,7 +204,45 @@ For production:
 - Sanitize all inputs
 - Use HTTPS for form submission
 
-### Production Deployment
+## 🌐 Live Demo
+
+**Website URL:** https://stepify-azure.vercel.app/
+
+The website is deployed on Vercel and includes:
+- ✅ **Homepage** - Complete landing page with all sections
+- ✅ **Enrollment Form** - Multi-step course enrollment system
+- ✅ **Responsive Design** - Works on all devices
+- ✅ **Interactive Features** - Form validation and smooth navigation
+
+## 🚀 Deployment
+
+### Current Deployment
+The website is currently deployed on **Vercel** at:
+**https://stepify-azure.vercel.app/**
+
+### Vercel Deployment Steps
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy to Vercel
+vercel
+
+# For production deployment
+vercel --prod
+```
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx http-server
+
+# Using PHP
+php -S localhost:8000
+```
+
+### Local Development
 - Upload files to web hosting service
 - Ensure proper file permissions
 - Configure server to serve static files
