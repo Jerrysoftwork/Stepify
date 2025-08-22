@@ -51,8 +51,8 @@ jerry-concept-hub/
 
 1. **Download/Clone the project**
    ```bash
-   git clone [your-repository-url]
-   cd jerry-concept-hub
+   git clone https://github.com/your-username/jerry-concept-hub.git
+cd jerry-concept-hub
    ```
 
 2. **Create the CSS files**
@@ -200,20 +200,6 @@ For production:
 - Add CSRF protection
 - Sanitize all inputs
 - Use HTTPS for form submission
-
-## 🚀 Deployment
-
-### Local Development
-```bash
-# Using Python
-python -m http.server 8000
-
-# Using Node.js
-npx http-server
-
-# Using PHP
-php -S localhost:8000
-```
 
 ### Production Deployment
 - Upload files to web hosting service
