@@ -1,75 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stepify 🚀 | Landing</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Concept Organization - Course Enrollment</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <span class="logo-icon">🚀</span>
-      <span class="logo-text">Stepify</span>
+    <div class="form-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="logo">
+                    <h1>Jerry Concept Organization</h1>
+                    <p>Your Gateway to Tech Excellence</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <ul class="step-indicator">
+                    <li class="step-item active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h3>Personal Info</h3>
+                            <p>Your basic details</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h3>Select Course</h3>
+                            <p>Choose your program</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h3>Schedule</h3>
+                            <p>Pick your timing</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h3>Review</h3>
+                            <p>Confirm enrollment</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" id="step1">
+                <div class="step-header">
+                    <h2 class="step-title">Personal Information</h2>
+                    <p class="step-subtitle">Let's get to know you better</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name">
+                        <div class="error-message" id="fullNameError">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email address">
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
+                        <div class="error-message" id="phoneError">Please enter your phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="experience">Experience Level</label>
+                        <select id="experience" class="form-select">
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <div></div>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Course Selection -->
+            <div class="form-step" id="step2">
+                <div class="step-header">
+                    <h2 class="step-title">Select Your Course</h2>
+                    <p class="step-subtitle">Choose the program that fits your goals</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="course-grid">
+                        <div class="course-card" data-course="basic-computer">
+                            <span class="course-icon">💻</span>
+                            <div class="course-title">Basic Computer Skills</div>
+                            <div class="course-description">Learn computer fundamentals, file management, and basic software operations.</div>
+                            <div class="course-price">₦15,000</div>
+                        </div>
+                        
+                        <div class="course-card" data-course="microsoft-office">
+                            <span class="course-icon">📊</span>
+                            <div class="course-title">Microsoft Office Suite</div>
+                            <div class="course-description">Master Word, Excel, PowerPoint, and Outlook for productivity.</div>
+                            <div class="course-price">₦25,000</div>
+                        </div>
+                        
+                        <div class="course-card" data-course="graphic-design">
+                            <span class="course-icon">🎨</span>
+                            <div class="course-title">Graphic Design</div>
+                            <div class="course-description">Create stunning visuals using industry-standard design software.</div>
+                            <div class="course-price">₦35,000</div>
+                        </div>
+                        
+                        <div class="course-card" data-course="web-development">
+                            <span class="course-icon">🌐</span>
+                            <div class="course-title">Web Development</div>
+                            <div class="course-description">Build modern websites using HTML, CSS, JavaScript, and frameworks.</div>
+                            <div class="course-price">₦45,000</div>
+                        </div>
+                        
+                        <div class="course-card" data-course="digital-marketing">
+                            <span class="course-icon">📱</span>
+                            <div class="course-title">Digital Marketing</div>
+                            <div class="course-description">Learn social media marketing, SEO, and online advertising strategies.</div>
+                            <div class="course-price">₦30,000</div>
+                        </div>
+                        
+                        <div class="course-card" data-course="data-analysis">
+                            <span class="course-icon">📈</span>
+                            <div class="course-title">Data Analysis</div>
+                            <div class="course-description">Analyze data using Excel, Python, and visualization tools.</div>
+                            <div class="course-price">₦40,000</div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="courseError">Please select a course</div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Schedule Selection -->
+            <div class="form-step" id="step3">
+                <div class="step-header">
+                    <h2 class="step-title">Choose Your Schedule</h2>
+                    <p class="step-subtitle">Select your preferred class timing</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="form-group">
+                        <label class="form-label">Preferred Time Slot</label>
+                        <div class="schedule-grid">
+                            <div class="schedule-option" data-schedule="morning">
+                                <strong>Morning</strong><br>
+                                <small>9:00 AM - 12:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="afternoon">
+                                <strong>Afternoon</strong><br>
+                                <small>1:00 PM - 4:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="evening">
+                                <strong>Evening</strong><br>
+                                <small>5:00 PM - 8:00 PM</small>
+                            </div>
+                            <div class="schedule-option" data-schedule="weekend">
+                                <strong>Weekend</strong><br>
+                                <small>Saturdays 10:00 AM - 4:00 PM</small>
+                            </div>
+                        </div>
+                        <div class="error-message" id="scheduleError">Please select a schedule</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="startDate">Preferred Start Date</label>
+                        <input type="date" id="startDate" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="additionalNotes">Additional Notes (Optional)</label>
+                        <textarea id="additionalNotes" class="form-input" rows="4" placeholder="Any special requirements or questions?"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Review Order</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Review & Confirmation -->
+            <div class="form-step" id="step4">
+                <div class="step-header">
+                    <h2 class="step-title">Review Your Enrollment</h2>
+                    <p class="step-subtitle">Please confirm your course details</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="summary-section">
+                        <div class="summary-title">Personal Information</div>
+                        <div class="summary-item">
+                            <span class="summary-label">Full Name:</span>
+                            <span class="summary-value" id="summaryName"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Email:</span>
+                            <span class="summary-value" id="summaryEmail"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Phone:</span>
+                            <span class="summary-value" id="summaryPhone"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Experience:</span>
+                            <span class="summary-value" id="summaryExperience"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-section">
+                        <div class="summary-title">Course Details</div>
+                        <div class="summary-item">
+                            <span class="summary-label">Course:</span>
+                            <span class="summary-value" id="summaryCourse"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Schedule:</span>
+                            <span class="summary-value" id="summarySchedule"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Start Date:</span>
+                            <span class="summary-value" id="summaryStartDate"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="total-amount" id="totalAmount">₦0</div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="termsAgree" style="margin-right: 10px;">
+                            I agree to the <a href="#" style="color: #2a5298;">terms and conditions</a>
+                        </label>
+                        <div class="error-message" id="termsError">Please agree to the terms and conditions</div>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-submit" onclick="submitForm()">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Success -->
+            <div class="form-step" id="step5">
+                <div class="success-animation">
+                    <div class="success-icon">🎉</div>
+                    <h2 class="step-title" style="color: #4CAF50;">Enrollment Successful!</h2>
+                    <p class="step-subtitle">Thank you for enrolling with Jerry Concept Organization</p>
+                    <div style="margin-top: 30px; padding: 20px; background: #f0f4ff; border-radius: 10px;">
+                        <p><strong>What's Next?</strong></p>
+                        <p>• You will receive a confirmation email shortly</p>
+                        <p>• Our team will contact you within 24 hours</p>
+                        <p>• Payment instructions will be provided</p>
+                        <p>• You'll receive your course materials before the start date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <nav>
-      <a href="#gallery">Gallery</a>
-      <a href="#faqs">FAQs</a>
-      <a href="#contact">Contact</a>
-      <a href="#subscribe">Stay Updated</a>
-      <a href="form.html" class="btn">Start Form</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to Stepify 🚀</h1>
-      <p>A creative way to experience a modern Multi-step Form Challenge.</p>
-      <a href="form.html" class="btn">Get Started</a>
-    </section>
-
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="grid-gallery">
-        <img src="https://via.placeholder.com/250" alt="Demo 1">
-        <img src="https://via.placeholder.com/250" alt="Demo 2">
-        <img src="https://via.placeholder.com/250" alt="Demo 3">
-      </div>
-    </section>
-
-    <section id="faqs">
-      <h2>Challenge FAQs</h2>
-      <div class="faq-item">
-        <h3>What is Stepify?</h3>
-        <p>Stepify helps you practice frontend challenges in a multi-step process.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is it free?</h3>
-        <p>Yes, 100% free to use and practice 🚀</p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Stay connected with us:</p>
-      <ul class="socials">
-        <li><a href="#">Discord</a></li>
-        <li><a href="#">X (Twitter)</a></li>
-        <li><a href="#">GitHub</a></li>
-      </ul>
-    </section>
-
-    <section id="subscribe">
-      <h2>Stay Up to Date</h2>
-      <form>
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Stepify 🚀. All rights reserved.</p>
-  </footer>
+    <script src="script.js"></script>
 </body>
 </html>
