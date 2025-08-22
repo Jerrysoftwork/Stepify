@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment - Jerry Concept Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body class="form-page">
+    <!-- Back to Home Link -->
+    <a href="index.html" class="back-to-home">← Back to Home</a>
+
+    <div class="form-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="form-logo">
+                    <h1>Jerry Concept Hub</h1>
+                    <p>Course Enrollment Form</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <ul class="step-indicator">
+                    <li class="step-item active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h3>Personal Info</h3>
+                            <p>Your basic details</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h3>Select Course</h3>
+                            <p>Choose your program</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h3>Schedule</h3>
+                            <p>Pick your timing</p>
+                        </div>
+                    </li>
+                    <li class="step-item" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h3>Review</h3>
+                            <p>Confirm enrollment</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" id="step1">
+                <div class="step-header">
+                    <h2 class="step-title">Personal Information</h2>
+                    <p class="step-subtitle">Let's get to know you better</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name">
+                        <div class="error-message" id="fullNameError">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email address">
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
+                        <div class="error-message" id="phoneError">Please enter your phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="experience">Experience Level</label>
+                        <select id="experience" class="form-select">
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <div></div>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Course Selection -->
+            <div class="form-step" id="step2">
+                <div class="step-header">
+                    <h2 class="step-title">Select Your Course</h2>
+                    <p class="step-subtitle">Choose the program that fits your goals</p>
+                </div>
+                
+                <div class="form-content">
+                    <div class="course-grid">
+                        <div class="form-course-card" data-course="basic-computer">
+                            <span class="course-icon">💻</span>
+                            <div class="course-title">Basic Computer Skills</div>
+                            <div class="course-description">Learn computer fundamentals, file management, and basic software operations.</div>
+                            <div class="course-price">₦15,000</div>
+                        </div>
+                        
+                        <div class="form-course-card" data-course="microsoft-office">
+                            <span class="course-icon">📊</span>
+                            <div class="course-title">Microsoft Office Suite</div>
